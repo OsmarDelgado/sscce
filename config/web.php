@@ -19,6 +19,22 @@ $config = [
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
         ],
+        'mailer' => [
+            'class' => 'yii\swiftmailer\Mailer',
+            'transport' => [
+                'class'      => 'Swift_SmtpTransport',
+                'host' => 'smtp.gmail.com',
+                'username' => 'starz.fires@gmail.com',
+                'password' => 'ecosport',
+                'port' => '587',
+                'encryption' => 'tls',
+            ],
+            'viewPath' => '/mail',
+            // send all mails to a file by default. You have to set
+            // 'useFileTransport' to false and configure a transport
+            // for the mailer to send real emails.
+            'useFileTransport' => false,
+        ],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
@@ -53,12 +69,12 @@ $config = [
 
 if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment
-    $config['bootstrap'][] = 'debug';
-    $config['modules']['debug'] = [
-        'class' => 'yii\debug\Module',
+    //$config['bootstrap'][] = 'debug';
+    //$config['modules']['debug'] = [
+    //    'class' => 'yii\debug\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
         //'allowedIPs' => ['127.0.0.1', '::1'],
-    ];
+    //];
 
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [

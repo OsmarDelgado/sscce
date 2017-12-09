@@ -10,6 +10,7 @@ use yii\helpers\ArrayHelper;
 /* @var $model app\models\Student */
 
 $this->title = Yii::t('app', 'Login');
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="student-login">
 
@@ -18,15 +19,18 @@ $this->title = Yii::t('app', 'Login');
     <div class="student-form">
 
         <?php $form = ActiveForm::begin(); ?>
+        <div class="row">
+          <div class="col-md-4 col-md-offset-4">
 
-        <?= $form->field($model, 'mail')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'mail')->textInput(['maxlength' => true]) ?>
 
-        <div class="form-group">
-            <?= Html::submitButton( Yii::t('app', 'Login'), ['class' => 'btn btn-success'] ) ?>
+            <div class="form-group">
+                <?= Html::submitButton( Yii::t('app', 'Login'), ['class' => 'btn btn-success'] ) ?>
+            </div>
+
+            </div>
+          </div>
         </div>
 
         <?php ActiveForm::end(); ?>
-
     </div>
-
-</div>
