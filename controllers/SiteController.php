@@ -10,7 +10,7 @@ use yii\web\Session;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
-use app\models\FormRegister;
+use app\models\RegisterForm;
 use app\models\Users;
 use app\models\RecoverPassForm;
 use app\models\ResetPassForm;
