@@ -407,11 +407,11 @@ public function actionLogin()
 
    if (User::isUserAdmin(Yii::$app->user->identity->id))
    {
-    return $this->redirect(["site/admin"]);
+    return $this->redirect(["/student/index"]);
    }
    else
    {
-    return $this->redirect(["site/user"]);
+    return $this->redirect(["/request/index"]);
    }
         }
 
@@ -420,11 +420,11 @@ public function actionLogin()
 
             if (User::isUserAdmin(Yii::$app->user->identity->id))
    {
-    return $this->redirect(["site/admin"]);
+    return $this->redirect(["/student/index"]);
    }
    else
    {
-    return $this->redirect(["site/user"]);
+    return $this->redirect(["/request/index"]);
    }
 
         } else {
