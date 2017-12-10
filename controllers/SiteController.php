@@ -12,28 +12,27 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\RegisterForm;
 use app\models\Users;
+use app\models\User;
 use app\models\RecoverPassForm;
 use app\models\ResetPassForm;
 use yii\widgets\ActiveForm;
 use yii\helpers\Url;
 use yii\helpers\Html;
-use app\models\User;
-
 
 class SiteController extends Controller
 {
   public function actionUser()
   {
-	return $this->render("user");  
-	  
+	return $this->render("user");
+
   }
-  
+
     public function actionAdmin()
   {
-	return $this->render("admin");  
-	  
+	return $this->render("admin");
+
   }
-  
+
   public function actionRecoverpass()
  {
   //Instancia para validar el formulario
@@ -405,7 +404,7 @@ class SiteController extends Controller
 public function actionLogin()
     {
         if (!\Yii::$app->user->isGuest) {
-   
+
    if (User::isUserAdmin(Yii::$app->user->identity->id))
    {
     return $this->redirect(["site/admin"]);
@@ -415,10 +414,10 @@ public function actionLogin()
     return $this->redirect(["site/user"]);
    }
         }
- 
+
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-   
+
             if (User::isUserAdmin(Yii::$app->user->identity->id))
    {
     return $this->redirect(["site/admin"]);
@@ -427,7 +426,7 @@ public function actionLogin()
    {
     return $this->redirect(["site/user"]);
    }
-   
+
         } else {
             return $this->render('login', [
                 'model' => $model,

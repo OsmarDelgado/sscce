@@ -69,7 +69,7 @@ class StudentController extends Controller
         $model->mail = $mail;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['request/student', 'id' => $model->id, 'token'=>$model->token]);
+            return $this->redirect(['student/create', 'id' => $model->id, 'token'=>$model->token]);
         } else {
             return $this->render('create', [
                 'model' => $model,

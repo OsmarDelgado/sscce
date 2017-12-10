@@ -34,7 +34,7 @@ use dosamigos\datepicker\DatePicker;
 
     <?= $form->field($model, 'observation')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'state_id')->dropDownList(ArrayHelper::map(State::find()->all(),'id','state'),['prompt'=>'Selecciona un estado'])?>
+    <?= $form->field($model, 'state_id')->textinput()?>
 
     <?= $form->field($model, 'paid')->textInput() ?>
 

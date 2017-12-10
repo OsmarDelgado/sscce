@@ -84,13 +84,13 @@ class RequestController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate($id)
+    public function actionCreate()
     {
         $model = new Request();
-        $model->id = $id;
+       // $model->id = $id;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['request/student', 'id' => $model->id]);
+            return $this->redirect(['request/create', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
